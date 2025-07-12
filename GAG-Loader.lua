@@ -1,3 +1,10 @@
+--[[
+    TO ANYONE READING THIS!!
+
+    You CANNOT bypass the key loading,
+    this just adds a UI for entering keys.
+--]]
+
 getgenv().WebSocket = nil
 getgenv().Websocket = nil
 
@@ -125,5 +132,15 @@ end
 
 if validKey and #validKey == 32 then
     script_key = validKey
+    Fluent:Notify({
+        Title = "Key Validated",
+        Content = "Your key has been successfully validated.",
+        Duration = 5
+    })
+    Fluent:Notify({
+        Title = "Loading GAG Script",
+        Content = "Check console by F9 if script doesn't load. If stuck at 95%, re-execute.",
+        Duration = 5
+    })
     loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/d62d61bd8071dbf2130e1f429d9bf8ab.lua"))()
 end
